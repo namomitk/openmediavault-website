@@ -32,7 +32,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "website", {
-	text:"Website",
+	text:_("Website"),
 	icon:"images/website.png"
 });
 
@@ -69,11 +69,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 			if (response && response.configfail)
 			{
 
-				OMV.MessageBox.error("Configuration Test Failed", {'message':"There was an error " +
-								"in the website's configuration, and it has been disabled to ensure the OpenMediaVault " +
-								"web interface continues to function. Please verify that any text entered in Extra Options " +
-								"contains valid configuration directives. Click Show details to view " +
-								"the configuration test result text.", 'trace'      :response.message});
+				OMV.MessageBox.error(_("Configuration Test Failed"), {'message':_("There was an error in the website's configuration, and it has been disabled to ensure the OpenMediaVault web interface continues to function. Please verify that any text entered in Extra Options contains valid configuration directives. Click Show details to view the configuration test result text."), 'trace':response.message});
 
 				return;
 			}
@@ -91,7 +87,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 		return [
 			{
 				xtype   :"fieldset",
-				title   :"General settings",
+				title   :_("General settings"),
 				defaults:{
 					labelSeparator:""
 				},
@@ -99,7 +95,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 					{
 						xtype     :"checkbox",
 						name      :"enable",
-						fieldLabel:"Enable",
+						fieldLabel:_("Enable"),
 						checked   :false,
 						inputValue:1,
 						listeners :{
@@ -111,37 +107,26 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						xtype     :"sharedfoldercombo",
 						name      :"sharedfolderref",
 						hiddenName:"sharedfolderref",
-						fieldLabel:"Document root",
+						fieldLabel:_("Document root"),
 						allowNone :false,
 						width     :300,
 						plugins   :[ OMV.form.plugins.FieldInfo ],
-						infoText  :"The location of the files to share. Permissions must be at least Users: read-only."
+						infoText  :_("The location of the files to share. Permissions must be at least Users: read-only.")
 					},
 					{
 						xtype        :"combo",
 						name         :"vhosttype",
-						fieldLabel   :"Virtual host Type",
+						fieldLabel   :_("Virtual host Type"),
 						allowBlank   :false,
 						plugins      :[ OMV.form.plugins.FieldInfo ],
-						infoText     :"In order to create a website that does not conflict with OpenMediaVault's web interface, " +
-										"this plugin will create a virtual host (a virtual website) in OpenMediaVault's web server.<Br /><br />" +
-										"In a <b>port based</b> virtual host " +
-										"configuration, the website configured here will be accessible at the same IP / name of this OpenMediaVault server, " +
-										"but on a different port. E.g. http://" + location.hostname + ":8500/. When using this type of configuration, be sure " +
-										"that the website port configured here is not the same port on which OpenMediaVault is running. This can be checked / changed in System " +
-										"-> General Settings.<Br /><br>" +
-										"In a <b>name based</b> virtual host configuration, the website configured here will be accessed " +
-										"as a different host name. E.g. http://some-host/. Where the name 'some-host' must resolve to the " +
-										"same IP address as OpenMediaVault. This usually requires that you have a DNS server on your network, " +
-										"or that a public DNS server has an entry for <b>some-host</b>." +
-										"<br /><br />",
+						infoText     :_("In order to create a website that does not conflict with OpenMediaVault's web interface, this plugin will create a virtual host (a virtual website) in OpenMediaVault's web server.<Br /><br />In a <b>port based</b> virtual host configuration, the website configured here will be accessible at the same IP / name of this OpenMediaVault server, but on a different port. E.g. http://" + location.hostname + ":8500/. When using this type of configuration, be sure that the website port configured here is not the same port on which OpenMediaVault is running. This can be checked / changed in System -> General Settings.<Br /><br>In a <b>name based</b> virtual host configuration, the website configured here will be accessed as a different host name. E.g. http://some-host/. Where the name 'some-host' must resolve to the same IP address as OpenMediaVault. This usually requires that you have a DNS server on your network, or that a public DNS server has an entry for <b>some-host</b>.<br /><br />"),
 						triggerAction:"all",
 						mode         :"local",
 						store        :new Ext.data.SimpleStore({
 																										 fields:[ "value", "text" ],
 																										 data  :[
-																											 [ "port", "Port based" ],
-																											 [ "name", "Name based" ]
+																											 [ "port", _("Port based") ],
+																											 [ "name", _("Name based") ]
 																										 ]
 																									 }),
 						displayField :"text",
@@ -156,7 +141,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 					{
 						xtype        :"numberfield",
 						name         :"port",
-						fieldLabel   :"Virtual host port",
+						fieldLabel   :_("Virtual host port"),
 						width        :60,
 						value        :8181,
 						vtype        :"port",
@@ -168,7 +153,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 					},
 					{
 						xtype     :"textfield",
-						fieldLabel:"Virtual host hostname",
+						fieldLabel:_("Virtual host hostname"),
 						name      :"hostname",
 						vtype     :"hostname",
 						allowBlank:false
@@ -177,15 +162,15 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 			},
 			{
 				xtype:"fieldset",
-				title:"Secure connection",
+				title:_("Secure connection"),
 				items:[
 					{
 						xtype     :"checkbox",
 						name      :"enablessl",
-						fieldLabel:"Enable SSL/TLS",
+						fieldLabel:_("Enable SSL/TLS"),
 						checked   :false,
 						inputValue:1,
-						boxLabel  :"Enable secure connection.",
+						boxLabel  :_("Enable secure connection."),
 						listeners :{
 							check:this._updateFormFields,
 							scope:this
@@ -195,24 +180,24 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						xtype     :"certificatecombo",
 						name      :"sslcertificateref",
 						hiddenName:"sslcertificateref",
-						fieldLabel:"Certificate",
+						fieldLabel:_("Certificate"),
 						allowNone :false,
 						allowBlank:false,
 						plugins   :[ OMV.form.plugins.FieldInfo ],
-						infoText  :"The SSL certificate."
+						infoText  :_("The SSL certificate.")
 					}
 				]
 
 			},
 			{
 				xtype   :"fieldset",
-				title   :"PHP",
+				title   :_("PHP"),
 				defaults:{ xtype:"checkbox" },
 				items   :[
 					{
 						name      :"ExecCGI",
-						fieldLabel:"Enable",
-						boxLabel  :"Allow PHP scripts to be executed.",
+						fieldLabel:_("Enable"),
+						boxLabel  :_("Allow PHP scripts to be executed."),
 						listeners :{
 							check:this._updateFormFields,
 							scope:this
@@ -222,10 +207,10 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						xtype        :'combo',
 						name         :'cgiuser',
 						hiddenName   :'cgiuser',
-						fieldLabel   :"User",
+						fieldLabel   :_("User"),
 						valueField   :'uuid',
 						displayField :'name',
-						emptyText    :"Select a user ...",
+						emptyText    :_("Select a user ..."),
 						allowBlank   :true,
 						allowNone    :true,
 						editable     :false,
@@ -248,40 +233,39 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 																																									})
 																						 }),
 						plugins      :[ OMV.form.plugins.FieldInfo ],
-						infoText     :"For security reasons, PHP scripts will run as " +
-										"the selected user."
+						infoText     :_("For security reasons, PHP scripts will run as the selected user.")
 					}
 				]
 			},
 			{
 				xtype   :"fieldset",
-				title   :"Options",
+				title   :_("Options"),
 				defaults:{ xtype:"checkbox" },
 				items   :[
 					{
 						name      :"Indexes",
-						fieldLabel:"Indexes",
-						boxLabel  :"If a URL which maps to a directory is requested, and there is no DirectoryIndex (e.g., index.html) in that directory, then a formatted listing of the directory will be returned."
+						fieldLabel:_("Indexes"),
+						boxLabel  :_("If a URL which maps to a directory is requested, and there is no DirectoryIndex (e.g., index.html) in that directory, then a formatted listing of the directory will be returned.")
 					},
 					{
 						name      :"FollowSymLinks",
-						fieldLabel:"Follow SymLinks",
-						boxLabel  :"The server will follow symbolic links in the document root."
+						fieldLabel:_("Follow SymLinks"),
+						boxLabel  :_("The server will follow symbolic links in the document root.")
 					},
 					{
 						name      :"SymLinksIfOwnerMatch",
-						fieldLabel:"SymLinks If Owner Match",
-						boxLabel  :"The server will only follow symbolic links for which the target file or directory is owned by the same user id as the link. "
+						fieldLabel:_("SymLinks If Owner Match"),
+						boxLabel  :_("The server will only follow symbolic links for which the target file or directory is owned by the same user id as the link.")
 					},
 					{
 						name      :"Includes",
-						fieldLabel:"Includes",
-						boxLabel  :"Server-side includes are permitted."
+						fieldLabel:_("Includes"),
+						boxLabel  :_("Server-side includes are permitted.")
 					},
 					{
 						name      :"MultiViews",
-						fieldLabel:"MultiViews",
-						boxLabel  :"Content negotiated \"MultiViews\" are allowed."
+						fieldLabel:_("MultiViews"),
+						boxLabel  :_("Content negotiated \"MultiViews\" are allowed.")
 
 					}
 				]
@@ -289,7 +273,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 			},
 			{
 				xtype   :"fieldset",
-				title   :"Allow Override",
+				title   :_("Allow Override"),
 				defaults:{ xtype:"checkbox" },
 				items   :[
 					{
@@ -298,29 +282,29 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 					},
 					{
 						name      :"AuthConfig",
-						fieldLabel:"Auth Config",
-						boxLabel  :"Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Require, etc.)."
+						fieldLabel:_("Auth Config"),
+						boxLabel  :_("Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Require, etc.).")
 					},
 					{
 						name      :"OverrideIndexes",
-						fieldLabel:"Indexes",
-						boxLabel  :"Directives controlling directory indexing (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
+						fieldLabel:_("Indexes"),
+						boxLabel  :_("Directives controlling directory indexing (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.).")
 					},
 					{
 						name      :"Limit",
-						fieldLabel:"Limit",
-						boxLabel  :"Directives controlling host access (Allow, Deny and Order)."
+						fieldLabel:_("Limit"),
+						boxLabel  :_("Directives controlling host access (Allow, Deny and Order).")
 					},
 					{
 						name      :"Options",
-						fieldLabel:"Options",
-						boxLabel  :"Directives controlling specific directory features (Options and XBitHack)."
+						fieldLabel:_("Options"),
+						boxLabel  :_("Directives controlling specific directory features (Options and XBitHack).")
 					}
 				]
 			},
 			{
 				xtype:"fieldset",
-				title:"Extra Options",
+				title:_("Extra Options"),
 				items:[
 					{
 						xtype     :"textfield",
@@ -334,7 +318,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 							cols        :"85"
 						},
 						plugins   :[ OMV.form.plugins.FieldInfo ],
-						infoText  :"Extra options for the &lt;VirtualHost&gt; directive."
+						infoText  :_("Extra options for the &lt;VirtualHost&gt; directive.")
 					}
 				]
 			}
@@ -430,13 +414,13 @@ Ext.extend(OMV.Module.Services.WebsitePHPINI, OMV.FormPanelExt, {
 OMV.NavigationPanelMgr.registerPanel("services", "website", {
 	cls     :OMV.Module.Services.Website,
 	position:10,
-	title   :"Settings"
+	title   :_("Settings")
 });
 
 OMV.NavigationPanelMgr.registerPanel("services", "website", {
 	cls     :OMV.Module.Services.WebsitePHPINI,
 	position:20,
-	title   :"php.ini"
+	title   :_("php.ini")
 });
 
 /**
@@ -451,11 +435,11 @@ OMV.NavigationPanelMgr.registerPanel("services", "website", {
 OMV.Module.Diagnostics.LogPlugin.Website = function (config)
 {
 	var initialConfig = {
-		title    :"Website Access Log",
+		title    :_("Website Access Log"),
 		stateId  :"c9d06952-00da-11e1-aa29-Website",
 		columns  :[
 			{
-				header   :"Date & Time",
+				header   :_("Date & Time"),
 				sortable :true,
 				dataIndex:"date",
 				id       :"date",
@@ -463,19 +447,19 @@ OMV.Module.Diagnostics.LogPlugin.Website = function (config)
 				renderer :OMV.util.Format.localeTimeRenderer()
 			},
 			{
-				header   :"Host",
+				header   :_("Host"),
 				sortable :true,
 				dataIndex:"host",
 				width    :15
 			},
 			{
-				header   :"User",
+				header   :_("User"),
 				sortable :true,
 				width    :15,
 				dataIndex:"user"
 			},
 			{
-				header   :"Event",
+				header   :_("Event"),
 				sortable :true,
 				dataIndex:"event",
 				id       :"event"
@@ -506,11 +490,11 @@ OMV.preg("log", "websiteaccess", OMV.Module.Diagnostics.LogPlugin.Website);
 OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 {
 	var initialConfig = {
-		title    :"Website Error Log",
+		title    :_("Website Error Log"),
 		stateId  :"c9d06952-00da-11e1-aa29-Website-error",
 		columns  :[
 			{
-				header   :"Date & Time",
+				header   :_("Date & Time"),
 				sortable :true,
 				dataIndex:"date",
 				id       :"date",
@@ -518,7 +502,7 @@ OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 				renderer :OMV.util.Format.localeTimeRenderer()
 			},
 			{
-				header   :"Severity",
+				header   :_("Severity"),
 				sortable :true,
 				dataIndex:"severity",
 				id       :"severity",
@@ -528,19 +512,19 @@ OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 					switch (val)
 					{
 						case 'error':
-							return 'Error';
+							return _('Error');
 						case 'warn':
-							return 'Warning';
+							return _('Warning');
 						case 'info':
-							return 'Info';
+							return _('Info');
 						case 'debug':
-							return 'Debug';
+							return _('Debug');
 					}
 					return val;
 				}
 			},
 			{
-				header   :"Event",
+				header   :_("Event"),
 				sortable :true,
 				dataIndex:"event",
 				id       :"event"
