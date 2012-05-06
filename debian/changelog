@@ -1,3 +1,9 @@
+openmediavault-website (0.3) unstable; urgency=low
+
+  * OMV 0.3 Port
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 06 May 2012 18:12:52 +0200
+
 openmediavault-website (0.2) unstable; urgency=low
 
   * Initial Import from http://code.google.com/p/omv-plugins

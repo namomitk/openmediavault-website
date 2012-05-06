@@ -220,7 +220,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						store        :new OMV.data.Store({
 																							 autoLoad  :true,
 																							 remoteSort:false,
-																							 proxy     :new OMV.data.DataProxy("UserMgmt", "getUserList"),
+																							 proxy     :new OMV.data.DataProxy({"service":"UserMgmt", "method":"getUserList"}),
 																							 reader    :new Ext.data.JsonReader({
 																																										idProperty   :"uuid",
 																																										totalProperty:"total",
