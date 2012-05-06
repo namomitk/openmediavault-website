@@ -1,0 +1,17 @@
+openmediavault-website (0.2) unstable; urgency=low
+
+  * Initial Import from http://code.google.com/p/omv-plugins
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 06 May 2012 15:20:34 +0200
+
+openmediavault-website (0.1.1) unstable; urgency=low
+
+  * Added donation link.
+  
+ -- Ian Moore <imooreyahoo@gmail.com>  Wed, 11 Jan 2012 13:04:24 -0500
+ 
+openmediavault-website (0.1.0) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ian Moore <imooreyahoo@gmail.com>  Thu, 15 Dec 2011 12:45:27 -0500
