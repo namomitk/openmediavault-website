@@ -208,27 +208,24 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						name         :'cgiuser',
 						hiddenName   :'cgiuser',
 						fieldLabel   :_("User"),
-						valueField   :'uuid',
-						displayField :'name',
 						emptyText    :_("Select a user ..."),
+						valueField   :'name',
+						displayField :'name',
 						allowBlank   :true,
 						allowNone    :true,
 						editable     :false,
 						autoWidth    :false,
-						value        :'',
 						triggerAction:"all",
 						store        :new OMV.data.Store({
 																							 autoLoad  :true,
 																							 remoteSort:false,
 																							 proxy     :new OMV.data.DataProxy({"service":"UserMgmt", "method":"getUserList"}),
 																							 reader    :new Ext.data.JsonReader({
-																																										idProperty   :"uuid",
+																																										idProperty   :"name",
 																																										totalProperty:"total",
 																																										root         :"data",
 																																										fields       :[
-																																											{ name:"uuid" },
-																																											{ name:"name" },
-																																											{ name:"email" }
+																																											{ name:"name" }
 																																										]
 																																									})
 																						 }),

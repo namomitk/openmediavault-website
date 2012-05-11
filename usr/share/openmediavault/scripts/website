@@ -77,10 +77,10 @@ EOF
 # CGI user
 CGIUSER=""
 CGIGRP=""
-USERUUID="$(omv_config_get "//services/website/cgiuser")"
-if [ "${USERUUID}" != "" ]; then
+USERNAME="$(omv_config_get "//services/website/cgiuser")"
+if [ "${USERNAME}" != "" ]; then
 
-	CGIUSER=$(omv_config_get "//system/usermanagement/users/user[uuid='${USERUUID}']/name")
+	CGIUSER=$(omv_config_get "//system/usermanagement/users/user[name='${USERNAME}']/name")
 	CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
 
 	if [ "${CGIUSER}" != "" ]; then
