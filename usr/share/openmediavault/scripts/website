@@ -75,12 +75,9 @@ cat <<EOF >>"/etc/apache2/sites-available/${SITECONF}"
 EOF
 
 # CGI user
-CGIUSER=""
+CGIUSER="$(omv_config_get "//services/website/cgiuser")"
 CGIGRP=""
-USERNAME="$(omv_config_get "//services/website/cgiuser")"
-if [ "${USERNAME}" != "" ]; then
-
-	CGIUSER=$(omv_config_get "//system/usermanagement/users/user[name='${USERNAME}']/name")
+if [ "${CGIUSER}" != "" ]; then
 	CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
 
 	if [ "${CGIUSER}" != "" ]; then

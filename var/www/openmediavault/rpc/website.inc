@@ -49,7 +49,7 @@ class WebsiteRpc extends OMVRpc {
 					"hostname":{"type":"string","optional":true},
 					"enablessl":{"type":"boolean"},
 					"sslcertificateref":{"type":"string","optional":true},
-					"cgiuser":{"type":"integer","optional":true},
+					"cgiuser":{"type":"string","optional":true},
 					"extraoptions":{"type":"string","optional":true},
 					"ExecCGI":{"type":"boolean"},
 					"Indexes":{"type":"boolean"},
