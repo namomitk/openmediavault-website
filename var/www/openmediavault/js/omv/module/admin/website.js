@@ -465,7 +465,7 @@ OMV.Module.Diagnostics.LogPlugin.Website = function (config)
 				id       :"event"
 			}
 		],
-		rpcArgs  :"websiteaccess",
+		rpcArgs  :{ "id":"websiteaccess" },
 		rpcFields:[
 			{ name:"date" },
 			{ name:"host" },
@@ -530,7 +530,7 @@ OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 				id       :"event"
 			}
 		],
-		rpcArgs  :"websiteerror",
+		rpcArgs  :{ "id":"websiteerror" },
 		rpcFields:[
 			{ name:"date" },
 			{ name:"severity" },
