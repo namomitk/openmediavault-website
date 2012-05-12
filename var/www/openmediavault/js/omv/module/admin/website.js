@@ -40,8 +40,7 @@ OMV.NavigationPanelMgr.registerMenu("services", "website", {
  * @class OMV.Module.Services.Website
  * @derived OMV.FormPanelExt
  */
-OMV.Module.Services.Website = function (config)
-{
+OMV.Module.Services.Website = function (config) {
 	var initialConfig = {
 		rpcService:"Website"
 	};
@@ -50,24 +49,20 @@ OMV.Module.Services.Website = function (config)
 };
 Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 
-	initComponent:function ()
-	{
+	initComponent:function () {
 		OMV.Module.Services.Website.superclass.initComponent.apply(
 						this, arguments);
 		this.on("load", this._updateFormFields, this);
 	},
 
 	// Override submit callback to catch configtest errors
-	cbSubmitHdl  :function (id, response, error)
-	{
+	cbSubmitHdl  :function (id, response, error) {
 		OMV.MessageBox.updateProgress(1);
 		OMV.MessageBox.hide();
-		if (error === null)
-		{
+		if (error === null) {
 
 			// Check for response config error
-			if (response && response.configfail)
-			{
+			if (response && response.configfail) {
 
 				OMV.MessageBox.error(_("Configuration Test Failed"), {'message':_("There was an error in the website's configuration, and it has been disabled to ensure the OpenMediaVault web interface continues to function. Please verify that any text entered in Extra Options contains valid configuration directives. Click Show details to view the configuration test result text."), 'trace':response.message});
 
@@ -76,14 +71,12 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 			this.fireEvent("submit", this);
 
 		}
-		else
-		{
+		else {
 			OMV.MessageBox.error(null, error);
 		}
 	},
 
-	getFormItems:function ()
-	{
+	getFormItems:function () {
 		return [
 			{
 				xtype   :"fieldset",
@@ -123,12 +116,12 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						triggerAction:"all",
 						mode         :"local",
 						store        :new Ext.data.SimpleStore({
-																										 fields:[ "value", "text" ],
-																										 data  :[
-																											 [ "port", _("Port based") ],
-																											 [ "name", _("Name based") ]
-																										 ]
-																									 }),
+							fields:[ "value", "text" ],
+							data  :[
+								[ "port", _("Port based") ],
+								[ "name", _("Name based") ]
+							]
+						}),
 						displayField :"text",
 						valueField   :"value",
 						value        :"port",
@@ -217,18 +210,18 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 						autoWidth    :false,
 						triggerAction:"all",
 						store        :new OMV.data.Store({
-																							 autoLoad  :true,
-																							 remoteSort:false,
-																							 proxy     :new OMV.data.DataProxy({"service":"UserMgmt", "method":"getUserList"}),
-																							 reader    :new Ext.data.JsonReader({
-																																										idProperty   :"name",
-																																										totalProperty:"total",
-																																										root         :"data",
-																																										fields       :[
-																																											{ name:"name" }
-																																										]
-																																									})
-																						 }),
+							autoLoad  :true,
+							remoteSort:false,
+							proxy     :new OMV.data.DataProxy({"service":"UserMgmt", "method":"getUserList"}),
+							reader    :new Ext.data.JsonReader({
+								idProperty   :"name",
+								totalProperty:"total",
+								root         :"data",
+								fields       :[
+									{ name:"name" }
+								]
+							})
+						}),
 						plugins      :[ OMV.form.plugins.FieldInfo ],
 						infoText     :_("For security reasons, PHP scripts will run as the selected user.")
 					}
@@ -325,39 +318,33 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 	/**
 	 * Private function to update the states of various form fields.
 	 */
-	_updateFormFields:function ()
-	{
+	_updateFormFields:function () {
 
 		var field = this.findFormField("enable");
 		var checked = field.checked;
 
 		// if not enabled, no fields are required
-		if (!checked)
-		{
+		if (!checked) {
 			this.getForm().applyToFields({allowBlank:true});
 			this.getForm().clearInvalid();
 		}
 
 		var fields = [ "sharedfolderref", "vhosttype"];
-		for (var i = 0; i < fields.length; i++)
-		{
+		for (var i = 0; i < fields.length; i++) {
 			field = this.findFormField(fields[i]);
-			if (!Ext.isEmpty(field))
-			{
+			if (!Ext.isEmpty(field)) {
 				field.allowBlank = !checked;
 			}
 		}
 
 		var vhostType = this.findFormField("vhosttype").getValue();
-		if (vhostType == "port")
-		{
+		if (vhostType == "port") {
 			this.findFormField("port").show();
 			this.findFormField("port").allowBlank = false || !checked;
 			this.findFormField("hostname").hide();
 			this.findFormField("hostname").allowBlank = true;
 		}
-		else
-		{
+		else {
 			this.findFormField("port").hide();
 			this.findFormField("port").allowBlank = true;
 			this.findFormField("hostname").show();
@@ -377,8 +364,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
  * @class OMV.Module.Services.Website
  * @derived OMV.FormPanelExt
  */
-OMV.Module.Services.WebsitePHPINI = function (config)
-{
+OMV.Module.Services.WebsitePHPINI = function (config) {
 	var initialConfig = {
 		rpcService  :"Website",
 		rpcGetMethod:"getPhpIni",
@@ -390,14 +376,12 @@ OMV.Module.Services.WebsitePHPINI = function (config)
 };
 Ext.extend(OMV.Module.Services.WebsitePHPINI, OMV.FormPanelExt, {
 
-	initComponent:function ()
-	{
+	initComponent:function () {
 		OMV.Module.Services.WebsitePHPINI.superclass.initComponent.apply(
 						this, arguments);
 	},
 
-	getFormItems:function ()
-	{
+	getFormItems:function () {
 		return [
 			{
 				xtype     :'textarea',
@@ -429,8 +413,7 @@ OMV.NavigationPanelMgr.registerPanel("services", "website", {
  * @derived OMV.Module.Diagnostics.LogPlugin
  * Class that implements the 'Website' log file diagnostics plugin
  */
-OMV.Module.Diagnostics.LogPlugin.Website = function (config)
-{
+OMV.Module.Diagnostics.LogPlugin.Website = function (config) {
 	var initialConfig = {
 		title    :_("Website Access Log"),
 		stateId  :"c9d06952-00da-11e1-aa29-Website",
@@ -475,7 +458,7 @@ OMV.Module.Diagnostics.LogPlugin.Website = function (config)
 					this, initialConfig);
 };
 Ext.extend(OMV.Module.Diagnostics.LogPlugin.Website,
-					 OMV.Module.Diagnostics.LogPlugin, {
+				OMV.Module.Diagnostics.LogPlugin, {
 				});
 OMV.preg("log", "websiteaccess", OMV.Module.Diagnostics.LogPlugin.Website);
 
@@ -484,8 +467,7 @@ OMV.preg("log", "websiteaccess", OMV.Module.Diagnostics.LogPlugin.Website);
  * @derived OMV.Module.Diagnostics.LogPlugin
  * Class that implements the 'Website' log file diagnostics plugin
  */
-OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
-{
+OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config) {
 	var initialConfig = {
 		title    :_("Website Error Log"),
 		stateId  :"c9d06952-00da-11e1-aa29-Website-error",
@@ -504,10 +486,8 @@ OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 				dataIndex:"severity",
 				id       :"severity",
 				width    :20,
-				renderer :function (val)
-				{
-					switch (val)
-					{
+				renderer :function (val) {
+					switch (val) {
 						case 'error':
 							return _('Error');
 						case 'warn':
@@ -539,7 +519,7 @@ OMV.Module.Diagnostics.LogPlugin.Websiteerror = function (config)
 					this, initialConfig);
 };
 Ext.extend(OMV.Module.Diagnostics.LogPlugin.Websiteerror,
-					 OMV.Module.Diagnostics.LogPlugin, {
+				OMV.Module.Diagnostics.LogPlugin, {
 				});
 OMV.preg("log", "websiteerror", OMV.Module.Diagnostics.LogPlugin.Websiteerror);
 
