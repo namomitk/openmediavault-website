@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: OMV Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-12 11:31+0200\n"
+"PO-Revision-Date: 2012-05-08 18:45+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.net/projects/p/OMVPlugins/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Allow Override"
+msgstr "Tillad Tilsidesættelse"
+
+msgid "Allow PHP scripts to be executed."
+msgstr "Tillad PHP scripts at blive kørt."
+
+msgid "Auth Config"
+msgstr "Godkend Konfig"
+
+msgid ""
+"Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, "
+"AuthName, AuthType, AuthUserFile, Require, etc.)."
+msgstr "Godkendelss direktiver (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Kræv, osv.)."
+
+msgid "Certificate"
+msgstr "Certifikat"
+
+msgid "Configuration Test Failed"
+msgstr "Konfiguration Test Fejlede"
+
+msgid "Content negotiated \"MultiViews\" are allowed."
+msgstr "Indhold forhandlet \"MultiViews\" er tilladt."
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid ""
+"Directives controlling directory indexing (AddDescription, AddIcon, "
+"AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, "
+"FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
+msgstr "Direktiver om kontrol af mappe indeksering (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions og ReadmeName osv.)."
+
+msgid "Directives controlling host access (Allow, Deny and Order)."
+msgstr "Direktiver om kontrol af vært adgang (Tillad, Afvis og Orden)."
+
+msgid ""
+"Directives controlling specific directory features (Options and XBitHack)."
+msgstr "Direktiver om kontrol af bestemt mappe funktioner (Muligheder og XBitHack)."
+
+msgid "Document root"
+msgstr "Dokument rod"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable SSL/TLS"
+msgstr "Aktiver SSL/TLS"
+
+msgid "Enable secure connection."
+msgstr "Aktiver sikker forbindelse."
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Extra Options"
+msgstr "Ekstra Muligheder"
+
+msgid "Extra options for the &lt;VirtualHost&gt; directive."
+msgstr "Ekstra muligheder for &lt;VirtuelVært&gt; direktivet."
+
+msgid "Follow SymLinks"
+msgstr "Følg SymLinks"
+
+msgid "For security reasons, PHP scripts will run as the selected user."
+msgstr "Af sikkerheds grunde, vil PHP scripts blive kørt som den valgte bruger."
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Host"
+msgstr "Vært"
+
+msgid ""
+"If a URL which maps to a directory is requested, and there is no "
+"DirectoryIndex (e.g., index.html) in that directory, then a formatted "
+"listing of the directory will be returned."
+msgstr "Hvis en URL, der henleder til et biblioteket bliver anmodet, og der ingen DirectoryIndex er (f.eks index.html) i dette biblioteket, vil en formateret liste af biblioteket blive returneret."
+
+msgid ""
+"In order to create a website that does not conflict with OpenMediaVault's "
+"web interface, this plugin will create a virtual host (a virtual website) in"
+" OpenMediaVault's web server.<Br /><br />In a <b>port based</b> virtual host"
+" configuration, the website configured here will be accessible at the same "
+"IP / name of this OpenMediaVault server, but on a different port. E.g. "
+"http://"
+msgstr "For at lave en hjemmeside, der ikke konflikter med OpenMediaVault's web-interface, vil dette plugin lave en virtuel vært (en virtuel hjemmeside) i OpenMediaVault's webserver. <Br /><br />I en <b>port baseret</b> virtuel værts konfiguration, vil hjemmesiden der konfigures her være tilgængelige på samme IP / navnet på denne OpenMediaVault server, men på en anden port. F.eks http://"
+
+msgid "Includes"
+msgstr "Indeholder"
+
+msgid "Indexes"
+msgstr "Indekser"
+
+msgid "Limit"
+msgstr "Grænse"
+
+msgid "MultiViews"
+msgstr "MultiViews"
+
+msgid "Name based"
+msgstr "Navne baseret"
+
+msgid "Options"
+msgstr "Muligheder"
+
+msgid "PHP"
+msgstr "PHP"
+
+msgid "Port based"
+msgstr "Port baseret"
+
+msgid "Secure connection"
+msgstr "Sikker forbindelse"
+
+msgid "Select a user ..."
+msgstr "Vælg en bruger ..."
+
+msgid "Server-side includes are permitted."
+msgstr "Server-side indehold er tilladt."
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Severity"
+msgstr "Sværhedsgrad"
+
+msgid "SymLinks If Owner Match"
+msgstr "Symlinks Hvis Ejer Matcher"
+
+msgid "The SSL certificate."
+msgstr "SSL certifikatet."
+
+msgid ""
+"The location of the files to share. Permissions must be at least Users: "
+"read-only."
+msgstr "Placeringen af de filer der skal deles. Tilladelser skal mindst være Bruger: skrivebeskyttet."
+
+msgid "The server will follow symbolic links in the document root."
+msgstr "Serveren vil følge symbolske links i dokuments roden."
+
+msgid ""
+"The server will only follow symbolic links for which the target file or "
+"directory is owned by the same user id as the link."
+msgstr "Serveren vil kun følge symbolske links hvor destinations fil eller mappe er ejet af den samme bruger id som linket."
+
+msgid ""
+"There was an error in the website's configuration, and it has been disabled "
+"to ensure the OpenMediaVault web interface continues to function. Please "
+"verify that any text entered in Extra Options contains valid configuration "
+"directives. Click Show details to view the configuration test result text."
+msgstr "Der opstod en fejl i hjemmesidens konfiguration, og den er blevet deaktiveret for at sikre at OpenMediaVaults web interface fortsat fungerer. Kontroller venligst, at alt indtastet tekst i Ekstra Muligheder indeholder gyldige konfigurations-direktiver. Klik på Vis detaljer for at se konfigurationens testresultat tekst."
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "Virtual host Type"
+msgstr "Virtuel vært Type"
+
+msgid "Virtual host hostname"
+msgstr "Virtuel vært værtsnavn"
+
+msgid "Virtual host port"
+msgstr "Virtuel vært port"
+
+msgid "Website"
+msgstr "Hjemmeside"
+
+msgid "Website Access Log"
+msgstr "Hjemmeside Tilgangs Log"
+
+msgid "Website Error Log"
+msgstr "Hjemmeside Fejl Log"
+
+msgid "php.ini"
+msgstr "php.ini"

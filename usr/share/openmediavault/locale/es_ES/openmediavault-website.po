@@ -1,0 +1,195 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: OMV Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-12 11:31+0200\n"
+"PO-Revision-Date: 2012-05-09 19:45+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/OMVPlugins/language/es_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Allow Override"
+msgstr "Permitir la anulación"
+
+msgid "Allow PHP scripts to be executed."
+msgstr "Permite ejecución de scrips php"
+
+msgid "Auth Config"
+msgstr "Configuración de Autenticación"
+
+msgid ""
+"Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, "
+"AuthName, AuthType, AuthUserFile, Require, etc.)."
+msgstr "Directivas de Autenticación (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Require, etc.)."
+
+msgid "Certificate"
+msgstr "Certificado"
+
+msgid "Configuration Test Failed"
+msgstr "Falló la prueba de configuración."
+
+msgid "Content negotiated \"MultiViews\" are allowed."
+msgstr "Contenido negociado \"Multiples vistas\" está permitido."
+
+msgid "Date & Time"
+msgstr "Fecha y Hora"
+
+msgid ""
+"Directives controlling directory indexing (AddDescription, AddIcon, "
+"AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, "
+"FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
+msgstr "Directivas que controlan el indice del directorio (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
+
+msgid "Directives controlling host access (Allow, Deny and Order)."
+msgstr "Directivas que controlan el acceso al host (Allow, Deny and Order)."
+
+msgid ""
+"Directives controlling specific directory features (Options and XBitHack)."
+msgstr "Directivas que controlan opciones especificas del directorio (Options and XBitHack)."
+
+msgid "Document root"
+msgstr "Documento raíz"
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Enable SSL/TLS"
+msgstr "Habilitar SSL/TLS"
+
+msgid "Enable secure connection."
+msgstr "Habilitar conexión segura."
+
+msgid "Event"
+msgstr "Evento"
+
+msgid "Extra Options"
+msgstr "Opciones Extras"
+
+msgid "Extra options for the &lt;VirtualHost&gt; directive."
+msgstr "Opciones extras para el  &lt;VirtualHost&gt; directiva."
+
+msgid "Follow SymLinks"
+msgstr "Segir los enlaces SymLinks"
+
+msgid "For security reasons, PHP scripts will run as the selected user."
+msgstr "Por razones de seguridad, los Script PHP deben ser ejecutados por un usuario."
+
+msgid "General settings"
+msgstr "Opciones generales"
+
+msgid "Host"
+msgstr "Host"
+
+msgid ""
+"If a URL which maps to a directory is requested, and there is no "
+"DirectoryIndex (e.g., index.html) in that directory, then a formatted "
+"listing of the directory will be returned."
+msgstr "Si una URL que apunta a un directorio es llamada y no existe el indice del directorio (Ej: index.html) en ese directorio, una lista de los archivos que contiene ese directorio será la respuesta."
+
+msgid ""
+"In order to create a website that does not conflict with OpenMediaVault's "
+"web interface, this plugin will create a virtual host (a virtual website) in"
+" OpenMediaVault's web server.<Br /><br />In a <b>port based</b> virtual host"
+" configuration, the website configured here will be accessible at the same "
+"IP / name of this OpenMediaVault server, but on a different port. E.g. "
+"http://"
+msgstr "Para crear una pagina web que no entre en conflicto con el interfaz web de OMV, este plugin, creará un host virtual (una web virtual) en el servidor web OpenMediaVault.<Br /><br />In a <b>port based</b> virtual host configuration, La pagina web configurada de esta manera, será accesible en la misma IP/nombre de este servidor, pero en un puerto diferente. Ej: http://192.168.1.250:8090"
+
+msgid "Includes"
+msgstr "Includes"
+
+msgid "Indexes"
+msgstr "Indices"
+
+msgid "Limit"
+msgstr "Limite"
+
+msgid "MultiViews"
+msgstr "Multiples vistas"
+
+msgid "Name based"
+msgstr "Basado en nombres"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "PHP"
+msgstr "PHP"
+
+msgid "Port based"
+msgstr "Basado en Puertos"
+
+msgid "Secure connection"
+msgstr "Conexión segura"
+
+msgid "Select a user ..."
+msgstr "Seleccionar un Usuario ..."
+
+msgid "Server-side includes are permitted."
+msgstr "Están permitidos includes en el lado servidor."
+
+msgid "Settings"
+msgstr "Opciones"
+
+msgid "Severity"
+msgstr "Severidad"
+
+msgid "SymLinks If Owner Match"
+msgstr "SymLinks si el propietario coincide"
+
+msgid "The SSL certificate."
+msgstr "Certificado SSL."
+
+msgid ""
+"The location of the files to share. Permissions must be at least Users: "
+"read-only."
+msgstr "Ruta de los archivos a compartir. El permiso debe ser como minimo de Usuarios:solo lectura."
+
+msgid "The server will follow symbolic links in the document root."
+msgstr "El servidor seguirá los enlaces simbolicos del documento raíz."
+
+msgid ""
+"The server will only follow symbolic links for which the target file or "
+"directory is owned by the same user id as the link."
+msgstr "El servidor solo seguirá enlaces simbolicos para aquellos destinos o directorios en los que el propietario tenga el mismo user id que el enlace."
+
+msgid ""
+"There was an error in the website's configuration, and it has been disabled "
+"to ensure the OpenMediaVault web interface continues to function. Please "
+"verify that any text entered in Extra Options contains valid configuration "
+"directives. Click Show details to view the configuration test result text."
+msgstr "Hay un error en la configuración de la página web. y ha sido deshabilitada para asegurar que el interfaz wev de OMV puede seguir funcionando. Por favor verifique que el texto entrado en el campo opciones extra, contiene una configuración valida y no contiene errores"
+
+msgid "User"
+msgstr "Usuario"
+
+msgid "Virtual host Type"
+msgstr "Tipo de host virtual"
+
+msgid "Virtual host hostname"
+msgstr "Nombre de Host del host virtual"
+
+msgid "Virtual host port"
+msgstr "Puerto Virtual del host"
+
+msgid "Website"
+msgstr "Página Web"
+
+msgid "Website Access Log"
+msgstr "Log de acceso a la Pág. Web"
+
+msgid "Website Error Log"
+msgstr "Log de errores de la Pág. Web"
+
+msgid "php.ini"
+msgstr "php.ini"
