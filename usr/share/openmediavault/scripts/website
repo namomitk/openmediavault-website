@@ -75,15 +75,16 @@ cat <<EOF >>"/etc/apache2/sites-available/${SITECONF}"
 EOF
 
 # CGI user
-CGIUSER="$(omv_config_get "//services/website/cgiuser")"
+CGIUID="$(omv_config_get "//services/website/cgiuid")"
+CGIUSER=""
 CGIGRP=""
-if [ "${CGIUSER}" != "" ]; then
-	CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
+if [ "${CGIUID}" != "" ]; then
+	CGIUSER=$(awk -v val=1001 -F ":" '$3==val{print $1}' /etc/passwd)
 
 	if [ "${CGIUSER}" != "" ]; then
+		CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
 		chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
 	fi
-
 fi
 
 
