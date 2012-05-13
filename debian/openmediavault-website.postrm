@@ -25,12 +25,10 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 if [ "$1" = "purge" ]; then
-
-    # Check for XML config
-    if omv_config_exists "//services/website"; then
-            xmlstarlet ed -P -L -d "//services/website" ${OMV_CONFIG_FILE}
-    fi
-
+	# Check for XML config
+	if omv_config_exists "//services/website"; then
+		xmlstarlet ed -P -L -d "//services/website" ${OMV_CONFIG_FILE}
+	fi
 fi
 
 if [ "$1" = "purge" ] || [ "$1" = "remove" ]; then

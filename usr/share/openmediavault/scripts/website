@@ -37,7 +37,6 @@ USESSL="$(omv_config_get "//services/website/enablessl")"
 
 # Port or name based vhost
 if [ "$(omv_config_get "//services/website/vhosttype")" = "port" ]; then
-
 	port=$(omv_config_get "//services/website/port")
 
 	# Update apache's ports if it does not already exist
@@ -47,9 +46,7 @@ if [ "$(omv_config_get "//services/website/vhosttype")" = "port" ]; then
 
 	# Add to vhost config
 	echo "<VirtualHost *:${port}>" >${SITECONFFILE}
-
 else
-
 	# Use OMV port
 	if [ "$(omv_config_get "//webadmin/forcesslonly")" = "1" ]; then
 		port=$(omv_config_get "//webadmin/sslport")
@@ -57,10 +54,9 @@ else
 		port=$(omv_config_get "//webadmin/port")
 	fi
 
-    # Add to vhost config
-    echo "<VirtualHost *:${port}>" >${SITECONFFILE}
+	# Add to vhost config
+	echo "<VirtualHost *:${port}>" >${SITECONFFILE}
 	echo "	ServerName $(omv_config_get "//services/website/hostname")">>${SITECONFFILE}
-
 fi
 
 # Get the shared folder reference and path
@@ -80,10 +76,9 @@ EOF
 CGIUSER="$(omv_config_get "//services/website/cgiuser")"
 CGIGRP=""
 if [ "${CGIUSER}" != "" ]; then
-		CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
-		if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
-			chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
-		fi
+	CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
+	if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
+		chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
 	fi
 fi
 
