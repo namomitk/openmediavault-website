@@ -25,9 +25,8 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 case "$1" in
-    configure)
-
-    ########################################################################
+	configure)
+		########################################################################
 		# Update file permissions.
 		########################################################################
 		echo "Updating permissions"
@@ -44,42 +43,41 @@ case "$1" in
 			omv_config_add_element "//services" "website" ""
 		fi
 
-    if ! omv_config_exists "//services/website/enable"; then
+		if ! omv_config_exists "//services/website/enable"; then
 			omv_config_add_element "//services/website" "enable" "0"
-    fi
-	
+		fi
+
 		# Add php.ini file?
 		if [ ! -e /var/www/omv-website-vhost/php.ini ]; then
 			cp /var/www/openmediavault/cgi/php.ini /var/www/omv-website-vhost/php.ini
 		fi
-	
+
 		# Fix permissions
 		chmod 755 /var/www/omv-website-vhost
 		chmod 644 /var/www/omv-website-vhost/php.ini
 		chmod 744 /var/www/omv-website-vhost/php-fcgi
-	
+
 		# Fix ownership?
 		if [ "$(omv_config_get "//services/website/enable")" = "1" ]; then
 			# CGI user
-      CGIUSER="$(omv_config_get "//services/website/cgiuser")"
-      CGIGRP=""
-      if [ "${CGIUSER}" != "" ]; then
-      		CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
-      		if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
-						chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
-					fi
-      	fi
-      fi
+			CGIUSER="$(omv_config_get "//services/website/cgiuser")"
+			CGIGRP=""
+			if [ "${CGIUSER}" != "" ]; then
+				CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
+				if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
+					chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
+				fi
+			fi
 		fi
-    ;;
+	;;
 
-    abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
 
-    *)
-			echo "postinst called with unknown argument \`$1'" >&2
-			exit 1
-    ;;
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+	;;
 esac
 
 # dh_installdeb will replace this with shell code automatically
