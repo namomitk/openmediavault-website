@@ -81,7 +81,9 @@ CGIUSER="$(omv_config_get "//services/website/cgiuser")"
 CGIGRP=""
 if [ "${CGIUSER}" != "" ]; then
 		CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
-		chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
+		if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
+			chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
+		fi
 	fi
 fi
 
