@@ -182,8 +182,7 @@ class WebsiteRpc extends OMVRpc {
 		$this->_validate(__METHOD__, func_get_args());
 
 		// Modify bools
-		foreach (array("enable", "enablessl", "ExecCGI", "Indexes", "FollowSymLinks", "SymLinksIfOwnerMatch", "Includes", "MultiViews", "AuthConfig", "OverrideIndexes", "Limit", "Options")
-						 as $b)
+		foreach (array("enable", "enablessl", "ExecCGI", "Indexes", "FollowSymLinks", "SymLinksIfOwnerMatch", "Includes", "MultiViews", "AuthConfig", "OverrideIndexes", "Limit", "Options") as $b)
 		{
 			$object[$b] = boolval(! empty($object[$b]));
 		}
@@ -246,8 +245,7 @@ class WebsiteRpc extends OMVRpc {
 
 		// Notify general configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-												"org.openmediavault.webadmin", $this->configGet("//webadmin"));
+		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.webadmin", $this->configGet("//webadmin"));
 
 	}
 

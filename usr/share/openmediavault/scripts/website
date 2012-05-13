@@ -2,7 +2,9 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Ian Moore <imooreyahoo@gmail.com>
+# @author    Marcel Beck <marcel.beck@mbeck.org>
 # @copyright Copyright (c) 2011 Ian Moore
+# @copyright Copyright (c) 2012 Marcel Beck
 #
 # This file is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -75,13 +77,9 @@ cat <<EOF >>"/etc/apache2/sites-available/${SITECONF}"
 EOF
 
 # CGI user
-CGIUID="$(omv_config_get "//services/website/cgiuid")"
-CGIUSER=""
+CGIUSER="$(omv_config_get "//services/website/cgiuser")"
 CGIGRP=""
-if [ "${CGIUID}" != "" ]; then
-	CGIUSER=$(awk -v val=1001 -F ":" '$3==val{print $1}' /etc/passwd)
-
-	if [ "${CGIUSER}" != "" ]; then
+if [ "${CGIUSER}" != "" ]; then
 		CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
 		chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
 	fi
@@ -91,43 +89,43 @@ fi
 # Compose options
 xmlstarlet sel -t -m "//services/website" \
 	-i "ExecCGI[. = '1']" \
-		-o "SuexecUserGroup ${CGIUSER} ${CGIGRP}" -n \
-    	-o "	&lt;FilesMatch \.php$&gt;" -n \
-        -o "		FcgidWrapper /var/www/omv-website-vhost/php-fcgi .php" -n \
-		-o "		Options ExecCGI" -n \
-        -o "		SetHandler fcgid-script" -n \
-    	-o "	&lt;/FilesMatch&gt;" -n -b \
+	-o "SuexecUserGroup ${CGIUSER} ${CGIGRP}" -n \
+	-o "	&lt;FilesMatch \.php$&gt;" -n \
+	-o "		FcgidWrapper /var/www/omv-website-vhost/php-fcgi .php" -n \
+	-o "		Options ExecCGI" -n \
+	-o "		SetHandler fcgid-script" -n \
+	-o "	&lt;/FilesMatch&gt;" -n -b \
 	-o "	&lt;Directory ${sfpath}&gt;" -n \
 	-o "		Options " \
 	-o "-ExecCGI " \
-    -i "Indexes[. = '0']" -o "-" -b \
-    -i "Indexes[. = '1']" -o "+" -b \
-    -o "Indexes " \
-    -i "FollowSymLinks[. = '0']" -o "-" -b \
-    -i "FollowSymLinks[. = '1']" -o "+" -b \
-    -o "FollowSymLinks " \
-    -i "SymLinksIfOwnerMatch[. = '0']" -o "-" -b \
-    -i "SymLinksIfOwnerMatch[. = '1']" -o "+" -b \
-    -o "SymLinksIfOwnerMatch " \
-    -i "Includes[. = '0']" -o "-" -b \
-    -i "Includes[. = '1']" -o "+" -b \
-    -o "Includes " \
-    -i "MultiViews[. = '0']" -o "-" -b \
-    -i "MultiViews[. = '1']" -o "+" -b \
-    -o "MultiViews" -n \
+	-i "Indexes[. = '0']" -o "-" -b \
+	-i "Indexes[. = '1']" -o "+" -b \
+	-o "Indexes " \
+	-i "FollowSymLinks[. = '0']" -o "-" -b \
+	-i "FollowSymLinks[. = '1']" -o "+" -b \
+	-o "FollowSymLinks " \
+	-i "SymLinksIfOwnerMatch[. = '0']" -o "-" -b \
+	-i "SymLinksIfOwnerMatch[. = '1']" -o "+" -b \
+	-o "SymLinksIfOwnerMatch " \
+	-i "Includes[. = '0']" -o "-" -b \
+	-i "Includes[. = '1']" -o "+" -b \
+	-o "Includes " \
+	-i "MultiViews[. = '0']" -o "-" -b \
+	-i "MultiViews[. = '1']" -o "+" -b \
+	-o "MultiViews" -n \
 	-o "AllowOverride " \
 	-i "AuthConfig[. = '1']" -o "AuthConfig " -b \
 	-i "OverrideIndexes[. = '1']" -o "Indexes " -b \
 	-i "Limit[. = '1']" -o "Limit " -b \
 	-i "Options[. = '1']" -o "Options " -b \
 	-i "AuthConfig[. = '0'] and OverrideIndexes[. = '0'] and Limit[. = '0'] and Options[. = '0']" \
-		-o "None" -b \
+	-o "None" -b \
 	-n -v "extraoptions" -n \
 	-o "	&lt;/Directory&gt;" -n \
-  	-i "enablessl[. = '1']" \
-      -o "    SSLEngine on" -n \
-      -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
-      -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
+	-i "enablessl[. = '1']" \
+	-o "    SSLEngine on" -n \
+	-v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
+	-v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
 	-b \
 	-o "&lt;/VirtualHost&gt;" -n \
 	${OMV_CONFIG_FILE} | xmlstarlet unesc >>${SITECONFFILE}
