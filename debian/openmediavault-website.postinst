@@ -57,6 +57,15 @@ case "$1" in
 		chmod 644 /var/www/omv-website-vhost/php.ini
 		chmod 744 /var/www/omv-website-vhost/php-fcgi
 
+		USERUUID="$(omv_config_get "//services/website/cgiuser")"
+		if [ "${USERUUID}" != "" ]; then
+			if omv_isuuid "${USERUUID}"; then
+				echo "Transform User UUID to Username"
+				CGIUSER=$(omv_config_get "//system/usermanagement/users/user[uuid='${USERUUID}']/name")
+				omv_config_update "//services/website/cgiuser" "${CGIUSER}"
+			fi
+		fi
+
 		# Fix ownership?
 		if [ "$(omv_config_get "//services/website/enable")" = "1" ]; then
 			# CGI user
