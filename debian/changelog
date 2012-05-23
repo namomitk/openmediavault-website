@@ -1,3 +1,13 @@
+openmediavault-website (0.3.1) unstable; urgency=low
+
+  * Github Issue FIx #1 - [v0.3.x] Log error
+  * Github Issue Fix #2 - Import old user privileges
+  * Github Issue Fix #4 - Extra Options Label
+  * Github Issue Fix #3 - Translations
+  * Various fixes
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Wed, 23 May 2012 18:56:00 +0200
+
 openmediavault-website (0.3) unstable; urgency=low
 
   * OMV 0.3 Port
