@@ -268,7 +268,7 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 				items   :[
 					{
 						xtype:"panel",
-						html :"Allow .htaccess files to override the items selcted below.<br /><br />"
+						html :_("Allow .htaccess files to override the items selected below.") + "<br /><br />"
 					},
 					{
 						name      :"AuthConfig",
@@ -296,7 +296,6 @@ Ext.extend(OMV.Module.Services.Website, OMV.FormPanelExt, {
 				xtype     :"textfield",
 				name      :"extraoptions",
 				fieldLabel:_("Extra options"),
-				hideLabel :true,
 				allowBlank:true,
 				autoCreate:{
 					tag         :"textarea",
