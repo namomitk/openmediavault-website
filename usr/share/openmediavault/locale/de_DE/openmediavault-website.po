@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: OMV Plugins\n"
@@ -11,93 +10,93 @@ msgstr ""
 "POT-Creation-Date: 2012-05-26 10:04+0200\n"
 "PO-Revision-Date: 2012-05-25 08:13+0000\n"
 "Last-Translator: Marcel Beck <fo3nik5@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.net/projects/p/OMVPlugins/language/da/)\n"
+"Language-Team: German (http://www.transifex.net/projects/p/OMVPlugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Allow .htaccess files to override the items selected below."
 msgstr ""
 
 msgid "Allow Override"
-msgstr "Tillad Tilsidesættelse"
+msgstr ""
 
 msgid "Allow PHP scripts to be executed."
-msgstr "Tillad PHP scripts at blive kørt."
+msgstr ""
 
 msgid "Auth Config"
-msgstr "Godkend Konfig"
+msgstr ""
 
 msgid ""
 "Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, "
 "AuthName, AuthType, AuthUserFile, Require, etc.)."
-msgstr "Godkendelss direktiver (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Kræv, osv.)."
+msgstr ""
 
 msgid "Certificate"
-msgstr "Certifikat"
+msgstr ""
 
 msgid "Configuration Test Failed"
-msgstr "Konfiguration Test Fejlede"
+msgstr ""
 
 msgid "Content negotiated \"MultiViews\" are allowed."
-msgstr "Indhold forhandlet \"MultiViews\" er tilladt."
+msgstr ""
 
 msgid "Date & Time"
-msgstr "Dato & Tid"
+msgstr ""
 
 msgid ""
 "Directives controlling directory indexing (AddDescription, AddIcon, "
 "AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, "
 "FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
-msgstr "Direktiver om kontrol af mappe indeksering (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions og ReadmeName osv.)."
+msgstr ""
 
 msgid "Directives controlling host access (Allow, Deny and Order)."
-msgstr "Direktiver om kontrol af vært adgang (Tillad, Afvis og Orden)."
+msgstr ""
 
 msgid ""
 "Directives controlling specific directory features (Options and XBitHack)."
-msgstr "Direktiver om kontrol af bestemt mappe funktioner (Muligheder og XBitHack)."
+msgstr ""
 
 msgid "Document root"
-msgstr "Dokument rod"
+msgstr ""
 
 msgid "Enable"
-msgstr "Aktiver"
+msgstr ""
 
 msgid "Enable SSL/TLS"
-msgstr "Aktiver SSL/TLS"
+msgstr ""
 
 msgid "Enable secure connection."
-msgstr "Aktiver sikker forbindelse."
+msgstr ""
 
 msgid "Event"
-msgstr "Begivenhed"
+msgstr ""
 
 msgid "Extra options"
 msgstr ""
 
 msgid "Extra options for the &lt;VirtualHost&gt; directive."
-msgstr "Ekstra muligheder for &lt;VirtuelVært&gt; direktivet."
+msgstr ""
 
 msgid "Follow SymLinks"
-msgstr "Følg SymLinks"
+msgstr ""
 
 msgid "For security reasons, PHP scripts will run as the selected user."
-msgstr "Af sikkerheds grunde, vil PHP scripts blive kørt som den valgte bruger."
+msgstr ""
 
 msgid "General settings"
-msgstr "Generelle indstillinger"
+msgstr ""
 
 msgid "Host"
-msgstr "Vært"
+msgstr ""
 
 msgid ""
 "If a URL which maps to a directory is requested, and there is no "
 "DirectoryIndex (e.g., index.html) in that directory, then a formatted "
 "listing of the directory will be returned."
-msgstr "Hvis en URL, der henleder til et biblioteket bliver anmodet, og der ingen DirectoryIndex er (f.eks index.html) i dette biblioteket, vil en formateret liste af biblioteket blive returneret."
+msgstr ""
 
 msgid ""
 "In order to create a website that does not conflict with OpenMediaVault's "
@@ -117,90 +116,90 @@ msgid ""
 msgstr ""
 
 msgid "Includes"
-msgstr "Indeholder"
+msgstr ""
 
 msgid "Indexes"
-msgstr "Indekser"
+msgstr ""
 
 msgid "Limit"
-msgstr "Grænse"
+msgstr ""
 
 msgid "MultiViews"
-msgstr "MultiViews"
+msgstr ""
 
 msgid "Name based"
-msgstr "Navne baseret"
+msgstr ""
 
 msgid "Options"
-msgstr "Muligheder"
+msgstr ""
 
 msgid "PHP"
-msgstr "PHP"
+msgstr ""
 
 msgid "Port based"
-msgstr "Port baseret"
+msgstr ""
 
 msgid "Secure connection"
-msgstr "Sikker forbindelse"
+msgstr ""
 
 msgid "Select a user ..."
-msgstr "Vælg en bruger ..."
+msgstr ""
 
 msgid "Server-side includes are permitted."
-msgstr "Server-side indehold er tilladt."
+msgstr ""
 
 msgid "Settings"
-msgstr "Indstillinger"
+msgstr ""
 
 msgid "Severity"
-msgstr "Sværhedsgrad"
+msgstr ""
 
 msgid "SymLinks If Owner Match"
-msgstr "Symlinks Hvis Ejer Matcher"
+msgstr ""
 
 msgid "The SSL certificate."
-msgstr "SSL certifikatet."
+msgstr ""
 
 msgid ""
 "The location of the files to share. Permissions must be at least Users: "
 "read-only."
-msgstr "Placeringen af de filer der skal deles. Tilladelser skal mindst være Bruger: skrivebeskyttet."
+msgstr ""
 
 msgid "The server will follow symbolic links in the document root."
-msgstr "Serveren vil følge symbolske links i dokuments roden."
+msgstr ""
 
 msgid ""
 "The server will only follow symbolic links for which the target file or "
 "directory is owned by the same user id as the link."
-msgstr "Serveren vil kun følge symbolske links hvor destinations fil eller mappe er ejet af den samme bruger id som linket."
+msgstr ""
 
 msgid ""
 "There was an error in the website's configuration, and it has been disabled "
 "to ensure the OpenMediaVault web interface continues to function. Please "
 "verify that any text entered in Extra Options contains valid configuration "
 "directives. Click Show details to view the configuration test result text."
-msgstr "Der opstod en fejl i hjemmesidens konfiguration, og den er blevet deaktiveret for at sikre at OpenMediaVaults web interface fortsat fungerer. Kontroller venligst, at alt indtastet tekst i Ekstra Muligheder indeholder gyldige konfigurations-direktiver. Klik på Vis detaljer for at se konfigurationens testresultat tekst."
+msgstr ""
 
 msgid "User"
-msgstr "Bruger"
+msgstr ""
 
 msgid "Virtual host Type"
-msgstr "Virtuel vært Type"
+msgstr ""
 
 msgid "Virtual host hostname"
-msgstr "Virtuel vært værtsnavn"
+msgstr ""
 
 msgid "Virtual host port"
-msgstr "Virtuel vært port"
+msgstr ""
 
 msgid "Website"
-msgstr "Hjemmeside"
+msgstr ""
 
 msgid "Website Access Log"
-msgstr "Hjemmeside Tilgangs Log"
+msgstr ""
 
 msgid "Website Error Log"
-msgstr "Hjemmeside Fejl Log"
+msgstr ""
 
 msgid "php.ini"
-msgstr "php.ini"
+msgstr ""
