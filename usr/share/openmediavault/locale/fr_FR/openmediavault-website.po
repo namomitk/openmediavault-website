@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Nahir Mohamed <nahirmoha@gmail.com>, 2012.
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
+# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: OMV Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-07 19:25+0200\n"
+"PO-Revision-Date: 2012-05-25 08:46+0000\n"
+"Last-Translator: Stéphane BOCQUET <stephane_bocquet@hotmail.com>\n"
+"Language-Team: French (http://www.transifex.net/projects/p/OMVPlugins/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid "Allow .htaccess files to override the items selected below."
+msgstr "Autoriser le fichier .htaccess à remplacer les éléments sélectionnés ci-dessous."
+
+msgid "Allow Override"
+msgstr "Autoriser la surcharge de configuration"
+
+msgid "Allow PHP scripts to be executed."
+msgstr "Autorise l’exécution des scripts PHP"
+
+msgid "Auth Config"
+msgstr "Autorisation"
+
+msgid ""
+"Authorization directives (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, "
+"AuthName, AuthType, AuthUserFile, Require, etc.)."
+msgstr "Directives contrôlant les autorisations (AuthDBMGroupFile, AuthDBMUserFile, AuthGroupFile, AuthName, AuthType, AuthUserFile, Require, etc.)"
+
+msgid "Certificate"
+msgstr "Certificat"
+
+msgid "Configuration Test Failed"
+msgstr "Test de configuration échoué"
+
+msgid "Content negotiated \"MultiViews\" are allowed."
+msgstr "Les contenus \"MultiViews\" sont autorisés"
+
+msgid "Date & Time"
+msgstr "Date & Heure"
+
+msgid ""
+"Directives controlling directory indexing (AddDescription, AddIcon, "
+"AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, "
+"FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)."
+msgstr "Directives contrôlant l'indexation des répertoires (AddDescription, AddIcon, AddIconByEncoding, AddIconByType, DefaultIcon, DirectoryIndex, FancyIndexing, HeaderName, IndexIgnore, IndexOptions, ReadmeName, etc.)"
+
+msgid "Directives controlling host access (Allow, Deny and Order)."
+msgstr "Directives contrôlant les accès à l'hôte (Allow, Deny and Order)"
+
+msgid ""
+"Directives controlling specific directory features (Options and XBitHack)."
+msgstr "Directives contrôlant les fonctionnalités spécifiques des dossiers (Options and XBitHack)"
+
+msgid "Document root"
+msgstr "Document racine"
+
+msgid "Enable"
+msgstr "Activer"
+
+msgid "Enable SSL/TLS"
+msgstr "Activer SSL/TLS"
+
+msgid "Enable secure connection."
+msgstr "Active les connexions sécurisées"
+
+msgid "Event"
+msgstr "Événement"
+
+msgid "Extra options"
+msgstr "Options supplémentaires"
+
+msgid "Extra options for the &lt;VirtualHost&gt; directive."
+msgstr "Options supplémentaires pour la section &lt;Virtualhost&gt;"
+
+msgid "Follow SymLinks"
+msgstr "Suivre liens symboliques"
+
+msgid "For security reasons, PHP scripts will run as the selected user."
+msgstr "Pour des raisons de sécurité, les scripts PHP seront exécutés par l'utilisateur sélectionné."
+
+msgid "General settings"
+msgstr "Paramètres généraux"
+
+msgid "Host"
+msgstr "Hôte"
+
+msgid ""
+"If a URL which maps to a directory is requested, and there is no "
+"DirectoryIndex (e.g., index.html) in that directory, then a formatted "
+"listing of the directory will be returned."
+msgstr "Si une URL correspondant à un répertoire est demandée, et qu'il n'y a aucun DirectoryIndex (ex: index.html) dans ce répertoire, une liste formatée du répertoire sera alors retourné"
+
+msgid ""
+"In order to create a website that does not conflict with OpenMediaVault's "
+"web interface, this plugin will create a virtual host (a virtual website) in"
+" OpenMediaVault's web server.<Br /><br />In a <b>port based</b> virtual host"
+" configuration, the website configured here will be accessible at the same "
+"IP / name of this OpenMediaVault server, but on a different port. E.g. http"
+"://some-host:8500/. When using this type of configuration, be sure that the "
+"website port configured here is not the same port on which OpenMediaVault is"
+" running. This can be checked / changed in System -> General Settings.<Br "
+"/><br>In a <b>name based</b> virtual host configuration, the website "
+"configured here will be accessed as a different host name. E.g. http://some-"
+"host/. Where the name 'some-host' must resolve to the same IP address as "
+"OpenMediaVault. This usually requires that you have a DNS server on your "
+"network, or that a public DNS server has an entry for <b>some-host</b>.<br "
+"/><br />"
+msgstr ""
+
+msgid "Includes"
+msgstr "Includes"
+
+msgid "Indexes"
+msgstr "Index"
+
+msgid "Limit"
+msgstr "Limite"
+
+msgid "MultiViews"
+msgstr "MultiViews"
+
+msgid "Name based"
+msgstr "Basé sur le nom"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "PHP"
+msgstr "PHP"
+
+msgid "Port based"
+msgstr "Basé sur le port"
+
+msgid "Secure connection"
+msgstr "Connexion sécurisée"
+
+msgid "Select a user ..."
+msgstr "Sélectionner un utilisateur"
+
+msgid "Server-side includes are permitted."
+msgstr "Les inclusions serveurs sont autorisées"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Severity"
+msgstr "Sévérité"
+
+msgid "SymLinks If Owner Match"
+msgstr "Suivre liens symbolique si propriétaire"
+
+msgid "The SSL certificate."
+msgstr "Le certificat SSL à utiliser."
+
+msgid ""
+"The location of the files to share. Permissions must be at least Users: "
+"read-only."
+msgstr "Chemin des fichiers à partager. Les permissions doivent au moins être Utilisateurs : lecture-seule."
+
+msgid "The server will follow symbolic links in the document root."
+msgstr "Le serveur suivra les liens symbolique situés à la racine"
+
+msgid ""
+"The server will only follow symbolic links for which the target file or "
+"directory is owned by the same user id as the link."
+msgstr "Le serveur ne suivra que les liens symboliques du fichier ou du répertoire qui auront les même identifiant utilisateur que le lien lui-même."
+
+msgid ""
+"There was an error in the website's configuration, and it has been disabled "
+"to ensure the OpenMediaVault web interface continues to function. Please "
+"verify that any text entered in Extra Options contains valid configuration "
+"directives. Click Show details to view the configuration test result text."
+msgstr "Il y a eu une erreur dans la configuration du site, et il a donc été désactivé afin d'assurer le fonctionnement de l'interface web d'OpenMediaVault. Vérifiez que tous textes saisi dans les 'Options supplémentaires' de configuration contiennent des directives valides. Cliquez sur 'Afficher les détails' pour voir le résultat du du test de configuration."
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "Virtual host Type"
+msgstr "Type d'hôte virtuel"
+
+msgid "Virtual host hostname"
+msgstr "Nom de domaine de l'hôte virtuel"
+
+msgid "Virtual host port"
+msgstr "Port de l'hôte virtuel"
+
+msgid "Website"
+msgstr "Site web"
+
+msgid "Website Access Log"
+msgstr "Journaux d'accès de site web"
+
+msgid "Website Error Log"
+msgstr "Journaux d'erreur du site web"
+
+msgid "php.ini"
+msgstr "php.ini"

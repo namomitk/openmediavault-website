@@ -13,9 +13,9 @@ install:
 	dh_prep
 	dh_installdirs
 	dh_install
-	chmod +x $(CURDIR)/debian/openmediavault-dnsmasq/usr/share/openmediavault/scripts/website
-	chmod +x $(CURDIR)/debian/openmediavault-dnsmasq/usr/share/openmediavault/scripts/configimport.d/99website
-	chmod +x $(CURDIR)/debian/openmediavault-dnsmasq/var/www/omv-website-vhost/php-fcgi
+	chmod +x $(CURDIR)/debian/openmediavault-website/usr/share/openmediavault/scripts/website
+	chmod +x $(CURDIR)/debian/openmediavault-website/usr/share/openmediavault/scripts/configimport.d/99website
+	chmod +x $(CURDIR)/debian/openmediavault-website/var/www/omv-website-vhost/php-fcgi
 
 
 binary-indep: install omv_clean_scm

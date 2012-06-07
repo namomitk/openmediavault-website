@@ -87,7 +87,7 @@ class WebsiteRpc extends OMVRpc {
 		{
 
 			// Correct method name
-			$name = substr($name, 6);
+			$name    = substr($name, 6);
 			$name[0] = strtolower($name[0]);
 
 			global $xmlConfig;
@@ -108,10 +108,10 @@ class WebsiteRpc extends OMVRpc {
 					break;
 				case 'set':
 				case 'replace':
-				if ($object === false)
-				{
-					throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-				}
+					if ($object === false)
+					{
+						throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+					}
 					break;
 				default:
 					if (is_null($object))
@@ -134,7 +134,7 @@ class WebsiteRpc extends OMVRpc {
 
 		// Check permissions
 		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR))
+		if (! $this->hasRole(OMV_ROLE_ADMINISTRATOR))
 		{
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
@@ -165,7 +165,7 @@ class WebsiteRpc extends OMVRpc {
 		foreach (array("enable", "enablessl", "ExecCGI", "Indexes", "FollowSymLinks", "SymLinksIfOwnerMatch", "Includes", "MultiViews", "AuthConfig", "OverrideIndexes", "Limit", "Options")
 						 as $b)
 		{
-			$object[$b] = boolval(!empty($object[$b]));
+			$object[$b] = boolval(! empty($object[$b]));
 		}
 		return $object;
 	}
@@ -182,10 +182,9 @@ class WebsiteRpc extends OMVRpc {
 		$this->_validate(__METHOD__, func_get_args());
 
 		// Modify bools
-		foreach (array("enable", "enablessl", "ExecCGI", "Indexes", "FollowSymLinks", "SymLinksIfOwnerMatch", "Includes", "MultiViews", "AuthConfig", "OverrideIndexes", "Limit", "Options")
-						 as $b)
+		foreach (array("enable", "enablessl", "ExecCGI", "Indexes", "FollowSymLinks", "SymLinksIfOwnerMatch", "Includes", "MultiViews", "AuthConfig", "OverrideIndexes", "Limit", "Options") as $b)
 		{
-			$object[$b] = boolval(!empty($object[$b]));
+			$object[$b] = boolval(! empty($object[$b]));
 		}
 
 		// Check for port conflicts
@@ -199,7 +198,7 @@ class WebsiteRpc extends OMVRpc {
 			{
 				$ports[] = $webconf['port'];
 			}
-			if (!empty($webconf['enablessl']))
+			if (! empty($webconf['enablessl']))
 			{
 				$ports[] = $webconf['sslport'];
 			}
@@ -246,8 +245,7 @@ class WebsiteRpc extends OMVRpc {
 
 		// Notify general configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-												"org.openmediavault.webadmin", $this->configGet("//webadmin"));
+		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.webadmin", $this->configGet("//webadmin"));
 
 	}
 

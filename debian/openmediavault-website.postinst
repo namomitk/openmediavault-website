@@ -25,68 +25,68 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 case "$1" in
-    configure)
+	configure)
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions"
+		omv_install_fixperms
 
-    ########################################################################
-        		# Update file permissions.
-        		########################################################################
-        		echo "Updating permissions"
-        		omv_install_fixperms
+		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
 
-        		########################################################################
-        		# Install locale files.
-        		########################################################################
-        		echo "Install locale files ..."
-        		omv_install_locale
-
-	# Check for XML config
-	if ! omv_config_exists "//services/website"; then
-		omv_config_add_element "//services" "website" ""
-	fi
-	
-    if ! omv_config_exists "//services/website/enable"; then
-        omv_config_add_element "//services/website" "enable" "0"
-    fi
-	
-	# Add php.ini file?
-	if [ ! -e /var/www/omv-website-vhost/php.ini ]; then
-		cp /var/www/openmediavault/cgi/php.ini /var/www/omv-website-vhost/php.ini
-	fi
-	
-	# Fix permissions
-	chmod 755 /var/www/omv-website-vhost
-	chmod 644 /var/www/omv-website-vhost/php.ini
-	chmod 744 /var/www/omv-website-vhost/php-fcgi
-	
-	# Fix ownership?
-	if [ "$(omv_config_get "//services/website/enable")" = "1" ]; then
-	
-		# CGI user
-		CGIUSER=""
-		CGIGRP=""
-		USERUUID="$(omv_config_get "//services/website/cgiuser")"
-		if [ "${USERUUID}" != "" ]; then
-		
-			CGIUSER=$(omv_config_get "//system/usermanagement/users/user[uuid='${USERUUID}']/name")
-			CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
-		
-			if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
-				chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
-			fi
-		
+		# Check for XML config
+		if ! omv_config_exists "//services/website"; then
+			omv_config_add_element "//services" "website" ""
 		fi
 
-	
-	fi
-    ;;
+		if ! omv_config_exists "//services/website/enable"; then
+			omv_config_add_element "//services/website" "enable" "0"
+		fi
 
-    abort-upgrade|abort-remove|abort-deconfigure)
-    ;;
+		# Add php.ini file?
+		if [ ! -e /var/www/omv-website-vhost/php.ini ]; then
+			cp /var/www/openmediavault/cgi/php.ini /var/www/omv-website-vhost/php.ini
+		fi
 
-    *)
-        echo "postinst called with unknown argument \`$1'" >&2
-        exit 1
-    ;;
+		# Fix permissions
+		chmod 755 /var/www/omv-website-vhost
+		chmod 644 /var/www/omv-website-vhost/php.ini
+		chmod 744 /var/www/omv-website-vhost/php-fcgi
+
+		USERUUID="$(omv_config_get "//services/website/cgiuser")"
+		if [ "${USERUUID}" != "" ]; then
+			if omv_isuuid "${USERUUID}"; then
+				echo "Transform User UUID to Username"
+				CGIUSER=$(omv_config_get "//system/usermanagement/users/user[uuid='${USERUUID}']/name")
+				omv_config_update "//services/website/cgiuser" "${CGIUSER}"
+			fi
+		fi
+
+		# Fix ownership?
+		if [ "$(omv_config_get "//services/website/enable")" = "1" ]; then
+			# CGI user
+			CGIUSER="$(omv_config_get "//services/website/cgiuser")"
+			CGIGRP=""
+			if [ "${CGIUSER}" != "" ]; then
+				CGIGRP=$(groups "${CGIUSER}" | awk '{ print $3 }')
+				if [ "${CGIUSER}" != "" ] && [ "${CGIGRP}" != "" ]; then
+					chown -R ${CGIUSER}:${CGIGRP} /var/www/omv-website-vhost
+				fi
+			fi
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument \`$1'" >&2
+		exit 1
+	;;
 esac
 
 # dh_installdeb will replace this with shell code automatically
