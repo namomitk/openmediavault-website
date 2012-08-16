@@ -89,7 +89,7 @@ xmlstarlet sel -t -m "//services/website" \
 	-o "SuexecUserGroup ${CGIUSER} ${CGIGRP}" -n \
 	-o "	&lt;FilesMatch \.php$&gt;" -n \
 	-o "		FcgidWrapper /var/www/omv-website-vhost/php-fcgi .php" -n \
-	-o "		Options ExecCGI" -n \
+	-o "		Options +ExecCGI" -n \
 	-o "		SetHandler fcgid-script" -n \
 	-o "	&lt;/FilesMatch&gt;" -n -b \
 	-o "	&lt;Directory ${sfpath}&gt;" -n \
